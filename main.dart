@@ -118,6 +118,20 @@ void main() {
 
     assertZeroInitCount();
   }
+
+  {
+    print('A->(B,C->(B->A))');
+    final a = A();
+    final deInitializerA = a.init();
+
+    final b = a.getB();
+    final c = a.getC();
+
+    final b2 = c.getB();
+    final a2 = c.getA();
+
+    deInitializerA.call();
+  }
 }
 
 void assertZeroInitCount() {
