@@ -22,12 +22,6 @@ abstract class Model {
   _deInit() {
     print('deInit $runtimeType: $initCount -> ${initCount - 1}');
     initCount--;
-    // if (initCount == 0) {
-    //   deInitializers.forEach((f) {
-    //     f.call();
-    //   });
-    //   deInitializers.clear();
-    // }
     if (initCount < 0) {
       throw Exception('deInit called moe than init() on $runtimeType');
     }
